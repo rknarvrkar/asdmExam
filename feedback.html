@@ -1,0 +1,298 @@
+<!DOCTYPE html>    
+<html>    
+<head> 
+    <script type="text/javascript">
+         function check_username()
+{
+    errmsg="";
+    var pat = /^[A-Za-z]+$/;
+	var a = document.getElementById("fname").value;
+	
+	if(pat.test(a))
+	{
+
+        errmsg="";
+        document.getElementById("sname").innerHTML = errmsg;
+
+	    return true;
+		
+	}
+	else
+	{
+		errmsg="Entered value is number please use alphabets";
+		document.getElementById("sname").innerHTML = errmsg;
+        document.getElementById("sname").style.color="Red"
+		return false;
+	}
+
+}
+
+function check_email()
+{
+	errmsg="";
+	var a = document.getElementById("email").value;
+
+    var pat= /^([a-z 0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+	
+	if(pat.test(a))
+	{
+        errmsg="";
+		document.getElementById("semail").innerHTML = errmsg;
+	return true;
+    }
+	else
+	{
+		errmsg="Incorrect Email ID";
+		document.getElementById("semail").innerHTML = errmsg;
+        document.getElementById("semail").style.color="Red"
+		return false;    
+	}
+
+}
+
+
+
+
+function check_number()
+{
+	errmsg="";
+	var a = document.getElementById("Mobile").value;
+
+    var pat= /^[7-9][0-9]{9}$/;
+	
+	if(pat.test(a) || a=='')
+	{
+        errmsg="";
+		document.getElementById("sMobile").innerHTML = errmsg;
+	return true;
+    }
+	else
+	{
+		errmsg="Incorrect Number";
+		document.getElementById("sMobile").innerHTML = errmsg;
+        document.getElementById("sMobile").style.color="Red"
+		return false;    
+	}
+
+}
+
+
+function check_fed()
+{
+	errmsg="";
+	var a = document.getElementById("subject").value;
+	
+	if(a=="" || a.length<=150)
+	{
+        errmsg="";
+		document.getElementById("ssubject").innerHTML = errmsg;
+	return true;
+	}
+	else
+	{
+        errmsg="Entered text is more than 150 characters";
+		document.getElementById("ssubject").innerHTML = errmsg;
+        document.getElementById("ssubject").style.color="Red"
+		return false;
+	
+	}
+
+}
+
+
+
+function validatecap(){
+            errmsg="";
+            
+            var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+            var string2 = removeSpaces(document.getElementById('maincap').value);
+            if (string1 != string2 || string2 == ""){
+                Captcha();
+                errmsg="Please Enter correct Captcha";
+                document.getElementById('scap').innerHTML += errmsg;
+                document.getElementById("scap").style.color="Red"
+                return false;
+            }
+            else{
+                errmsg="";
+		document.getElementById("scap").innerHTML = errmsg;
+        return true;
+            }
+        }
+
+function Captcha(){
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0');
+            var i;
+            for (i=0;i<3;i++){
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+                
+            }
+            var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d;
+            document.getElementById("mainCaptcha").value = code
+            
+            
+        }
+
+
+        function removeSpaces(string){
+            return string.split(' ').join('');
+        }
+
+         function myMsg() {
+      alert("Registration successful...!!!");
+    }
+    </script>       
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+<style> 
+   
+* {    
+  box-sizing: border-box;    
+}
+h2 {
+  color: blue;
+} 
+h6 {
+  color: red;
+}     
+    
+input[type=text], select, textarea {    
+  width: 100%;    
+  padding: 12px;    
+  border: 1px solid rgb(70, 68, 68);    
+  border-radius: 4px;    
+  resize: vertical;    
+}    
+input[type=email], select, textarea {    
+  width: 100%;    
+  padding: 12px;    
+  border: 1px solid rgb(70, 68, 68);    
+  border-radius: 4px;    
+  resize: vertical;    
+}    
+    
+label {    
+  padding: 12px 12px 12px 0;    
+  display: inline-block;    
+}    
+    
+input[type=submit] {    
+  background-color: rgb(37, 116, 161);    
+  color: white;    
+  padding: 12px 20px;    
+  border: none;    
+  border-radius: 4px;    
+  cursor: pointer;    
+  float: right;    
+}
+input[type=reset] {    
+  background-color: rgb(37, 116, 161);    
+  color: white;    
+  padding: 12px 20px;    
+  border: none;    
+  border-radius: 4px;    
+  cursor: pointer;    
+  float: left;    
+} 
+input[type=text] {    
+  background-color: rgb(37, 116, 161);    
+  color: white;    
+  padding: 12px 20px;    
+  border: none;    
+  border-radius: 4px;    
+  cursor: pointer;    
+  float: left;    
+}         
+      
+.container {    
+  border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 20px;    
+}    
+    
+.col-25 {    
+  float: left;    
+  width: 25%;    
+  margin-top: 6px;    
+}    
+    
+.col-75 {    
+  float: left;    
+  width: 75%;    
+  margin-top: 6px;    
+}    
+    
+  
+.row:after {    
+  content: "";    
+  display: table;    
+  clear: both;    
+}    
+    
+
+</style>    
+</head>    
+<body onload="Captcha();">    
+<h2>FEED BACK FORM</h2>
+<h6>NOTE::All fields are mandetory</h6>  
+<div class="container">    
+  <form>    
+    <div class="row">    
+      <div class="col-25">    
+        <label for="fname">Name</label>    
+      </div>    
+      <div class="col-75">    
+        <input type="text" id="fname" name="firstname" onblur="check_username();" placeholder="Your name.." required="required"> 
+        <span id="sname"></span>   
+      </div>    
+    </div>      
+    <div class="row">    
+        <div class="col-25">    
+          <label for="email">Mail Id</label>    
+        </div>    
+        <div class="col-75">    
+          <input type="email" id="email" name="mailid" onblur="check_email();" placeholder="Your mail id.."pattern="+@+.+"required="required"> 
+          <span id="semail"></span>   
+        </div>    
+      </div>    
+      <div class="row">    
+        <div class="col-25">    
+          <label for="fname">Mobile</label>    
+        </div>    
+        <div class="col-75">    
+          <input type="text" id="Mobile" name="Mobile" onblur="check_number();" placeholder="Your Mobile.." pattern="[789][0-9]{9}"required="required"> 
+          <span id="sMobile"></span> 
+        </div>    
+      </div>  
+    <div class="row">    
+      <div class="col-25">    
+        <label for="feed_back">Feed Back</label>    
+      </div>    
+      <div class="col-75">    
+        <textarea id="subject" name="subject" onblur="check_fed();" placeholder="Write something.." style="height:200px" size="150"required="required"></textarea>    
+        <span id="ssubject"></span>
+      </div>    
+    </div>
+    <div class="row">    
+        <div class="col-25">    
+            <label for="capcha">Enter Capcha</label>
+        </div>    
+        <div class="col-75">    
+            <input type="text" id="mainCaptcha" style="background-color:red;"/>
+            <span id="scap"></span>
+            <textarea id="capcha" name="capcha" placeholder="Enter capcha" required onblur="validatecap();" required="required"></textarea>    
+            <input type="button" id="refresh" value="Refresh" onclick="Captcha();" />
+        </div>    
+      </div>      
+    <div class="row">    
+      <input type="submit" value="Submit" onclick="myMsg()">
+     <div>   
+      <input type="reset" value="Reset" onclick="Captcha()"></div>  
+    </div>    
+  </form>    
+</div>    
+    
+</body>    
+</html>  
